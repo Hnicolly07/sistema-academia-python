@@ -5,5 +5,13 @@ def validar_escolha(escolha):
         return True
     return False
 
-def registrar_sessao():
-    return
+def registrar_sessao(data, tipo, duracao, esforco, calorias):
+    novo_treino = {
+        "data": data,
+        "tipo": tipo,
+        "duracao": duracao,
+        "esforco": esforco,
+        "calorias": calorias
+    }
+    
+    return novo_treino

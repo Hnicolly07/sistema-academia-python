@@ -34,7 +34,21 @@ def main():
             case 3:
                 services.semana_ideal()
                 
-
+def exibir_menu():
+    print("\n" + "="*45)
+    print(" 🏋️  SISTEMA DE ACOMPANHAMENTO DE TREINOS  🏋️")
+    print("="*45)
+    print("1. Registrar nova sessão")
+    print("2. Listar sessões cadastradas")
+    print("3. Semana Ideal")
+    print("4. Dia Ideal")
+    print("5. Média Semanal")
+    print("6. Obter treino mais longo")
+    print("7. Gerar Resumo")
+    print("8. Gerar Relatório Estatístico")
+    print("9. Ver Gráfico de Calorias (Visual)")
+    print("0. Sair do sistema")
+    print("="*45)
 
 if __name__ == "__main__":
     main()
