@@ -4,7 +4,7 @@ def main():
     novo_treino = {}
     treinos = []
     while True:
-        #exibir_menu()
+        exibir_menu()
         try:
             escolha = int(input())
         except ValueError:
@@ -29,6 +29,8 @@ def main():
                     print("Apenas valores de 1 a 10. Digite novamente!")
                     esforco_percebido = int(input('Esforço percebido: '))
                 calorias_estimadas = int(input('Calorias estimadas: '))
+                novo_treino = models.registrar_sessao(data, tipo_treino, duracao, esforco_percebido, calorias_estimadas)
+                treinos.append(novo_treino)
             case 2:
                 services.listar()
             case 3:
