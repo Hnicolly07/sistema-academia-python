@@ -32,9 +32,31 @@ def main():
                 novo_treino = models.registrar_sessao(data, tipo_treino, duracao, esforco_percebido, calorias_estimadas)
                 treinos.append(novo_treino)
             case 2:
-                services.listar()
+                tipo_desejado = input('Tipo de treino que deseja listar: ')
+                for treino in treinos:
+                    if treino["tipo"].lower() == treino.desejado:
+                        existe = True
+                        break #break porque só precisa encontrar 1 vez p/ saber que tem
+                else:
+                    print(f"Não há treinos do tipo {tipo_desejado} no sistema")
+                        
+                if existe:
+                    services.listar(treinos, tipo_desejado)
             case 3:
                 services.semana_ideal()
+            case 4:
+                services.dia_ideal()
+            case 5:
+                services.media_semanal()
+            case 6:
+                services.treino_mais_longo()
+            case 7:
+                models.resumo()
+            case 8:
+                models.relatorio()
+            case 9:
+                models.grafico()
+            
                 
 def exibir_menu():
     print("\n" + "="*45)
@@ -47,7 +69,7 @@ def exibir_menu():
     print("5. Média Semanal")
     print("6. Obter treino mais longo")
     print("7. Gerar Resumo")
-    print("8. Gerar Relatório Estatístico")
+    print("8. Gerar Relatório")
     print("9. Ver Gráfico de Calorias (Visual)")
     print("0. Sair do sistema")
     print("="*45)

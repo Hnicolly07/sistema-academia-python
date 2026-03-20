@@ -15,3 +15,18 @@ def registrar_sessao(data, tipo, duracao, esforco, calorias):
     }
     
     return novo_treino
+
+def resumo():
+    return
+
+def relatorio():
+    return
+
+def grafico():
+    return
+
+def estatistica():
+    return
+
+def validar_entrada():
+    return
