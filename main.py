@@ -49,7 +49,7 @@ def main():
             case 5:
                 services.media_semanal()
             case 6:
-                services.treino_mais_longo()
+                print(f"Treino mais longo: {services.treino_mais_longo(treinos)}")
             case 7:
                 models.resumo()
             case 8:
