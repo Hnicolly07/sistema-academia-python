@@ -46,8 +46,31 @@ def relatorio(treinos):
 def grafico(): #utilização de numpy e/ou matplotlib
     return
 
-def estatistica(): #utilização de numpy e/ou matplotlib
-    return
+def estatistica(treinos): #utilização de numpy e/ou matplotlib
+    if len(treinos) == 0:
+        print("\nNenhum treino registrado para calcular estatísticas.")
+        return None
+    
+    total_minutos = services.calcular_total_minutos(treinos)
+    total_calorias = services.calcular_total_calorias(treinos)
+    esforco_medio = services.media_esforco(treinos)
+    mais_longo = services.treino_mais_longo(treinos)
+
+    print("\n" + "-"*45)
+    print("ESTATÍSTICAS GERAIS")
+    print("-"*45)
+    print(f"Total de Minutos: {total_minutos}")
+    print(f"Total de Calorias: {total_calorias}")
+    print(f"Média de Esforço: {esforco_medio}/10")
+    print(f"Treino Mais Longo: {mais_longo['tipo']} ({mais_longo['duracao']} min)")
+    print("-"*45)
+
+    return {
+        "total_minutos": total_minutos,
+        "total_calorias": total_calorias,
+        "esforco_medio": esforco_medio,
+        "treino_mais_longo": mais_longo
+    }
 
 def validar_entrada():
     return
