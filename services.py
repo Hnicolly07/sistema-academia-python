@@ -1,5 +1,3 @@
-
-
 def listar(treinos, tipo):
     i = 1
     for treino in treinos:
@@ -8,12 +6,19 @@ def listar(treinos, tipo):
             i += 1
 
 def semana_ideal(treinos):
-    return
+    contagem = {}
+    maior_qtd = 0
+    semana_ideal = ""
+    for treino in treinos:
+        semana = treino["semana"]
+        contagem[semana] = contagem.get(semana, 0) + 1
+    for semana in contagem:
+        if contagem[semana] > maior_qtd:
+            maior_qtd = contagem[semana]
+            semana_ideal = semana
+    return semana_ideal
 
 def dia_ideal(treinos):
-    if not treinos:
-        return None
-
     dias = {}
     for treino in treinos:
         data = treino["data"]
@@ -37,11 +42,18 @@ def dia_ideal(treinos):
     }
 
 def media_semanal(treinos):
-    return
+    if not treinos:
+        return 0.0
+    soma = media_semana = 0
+    contagem = {}
+    for treino in treinos:
+        contagem[treino["semana"]] = contagem.get(treino["semana"], 0) + 1
+    for qtd_treinos in contagem.values():
+        media_semana = qtd_treinos/5 #5 pois os dias de treino serão de segunda a sexta
+        soma += media_semana
+    return round(soma/len(contagem), 2) #2 casas decimais
 
 def treino_mais_longo(treinos):
-    if not treinos:
-        return None
     maior_duracao = 0
     maior_treino = {}
     for treino in treinos:
