@@ -55,16 +55,7 @@ def main():
             case 3:
                 services.semana_ideal(treinos)
             case 4:
-                resultado = services.dia_ideal(treinos)
-        
-                print("\n" + "-"*30)
-                print("SEU DIA IDEAL (Recorde)")
-                print("-"*30)
-                print(f"Data: {resultado['data']}")
-                print(f"Treinos realizados: {resultado['quantidade_treinos']}")
-                print(f"Duração Total: {resultado['duracao_total']} minutos")
-                print(f"Calorias Queimadas: {resultado['calorias_totais']} kcal")
-                print("-"*30)
+                services.dia_ideal(treinos)
             case 5:
                 services.media_semanal(treinos)
             case 6:
@@ -72,38 +63,7 @@ def main():
             case 7:
                 models.resumo(treinos)
             case 8:
-                dados = models.relatorio(treinos)
-                
-                print("\n" + "="*50)
-                print(" RELATÓRIO GERAL DE TREINOS ")
-                print("="*50)
-                print(f"Total de Sessões: {dados['total_treinos']}")
-                print(f"Tempo Total Gasto: {dados['total_duracao']} minutos")
-                print(f"Total de Calorias Queimadas: {dados['total_calorias']} kcal")
-                print(f"Média de Esforço Percebido: {dados['media_esforco']}/10")
-                    
-                if dados['treino_mais_longo']:
-                    t_longo = dados['treino_mais_longo']
-                    print(f"Treino Mais Longo: {t_longo['tipo']} ({t_longo['duracao']} min)")
-                
-                if dados['dia_ideal']:
-                    print(f"Dia Ideal: {dados['dia_ideal']['data']} ({dados['dia_ideal']['calorias_totais']} kcal)")
-                        
-                print("-" * 50)
-                print(" MÉTRICAS EM DESENVOLVIMENTO ")
-                    
-                # ainda não está pronto, falta fazer, só pra adiantar e deixar já estruturado.
-                if dados['semana_ideal']:
-                    print(f"Semana Ideal: {dados['semana_ideal']}")
-                else:
-                    print("Semana Ideal: (......hiorrana)")
-                        
-                if dados['media_semanal']:
-                    print(f"Média Semanal: {dados['media_semanal']}")
-                else:
-                    print("Média Semanal: (.....(hiorrana))")
-                        
-                print("="*50)    
+                models.relatorio(treinos)
             case 9:
                 models.grafico(treinos)
             

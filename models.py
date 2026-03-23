@@ -29,17 +29,36 @@ def relatorio(treinos): #talvez passar chamadas pra dentro dos prints pra reduzi
     semana_campea = services.semana_ideal(treinos) 
     media_semana = services.media_semanal(treinos) 
 
-    #retirar retorno e fazer print dentro da função
-    return {
-        "total_treinos": total_treinos,
-        "total_duracao": total_duracao,
-        "total_calorias": total_calorias,
-        "media_esforco": media,
-        "treino_mais_longo": mais_longo,
-        "dia_ideal": dia_campeao,
-        "semana_ideal": semana_campea,
-        "media_semanal": media_semana
-    }
+    print("\n" + "="*50)
+    print(" RELATÓRIO GERAL DE TREINOS ")
+    print("="*50)
+    print(f"Total de Sessões: {total_treinos}")
+    print(f"Tempo Total Gasto: {total_duracao} minutos")
+    print(f"Total de Calorias Queimadas: {total_calorias} kcal")
+    print(f"Média de Esforço Percebido: {media}/10")
+                    
+    dados = relatorio(treinos)
+
+    if dados['treino_mais_longo']:
+        t_longo = dados['treino_mais_longo']
+        print(f"Treino Mais Longo: {t_longo['tipo']} ({t_longo['duracao']} min)")
+                
+    if dados['dia_ideal']:
+        print(f"Dia Ideal: {dados['dia_ideal']['data']} ({dados['dia_ideal']['calorias_totais']} kcal)")
+                        
+    print("-" * 50)
+    print(" MÉTRICAS EM DESENVOLVIMENTO ")
+                    
+                # ainda não está pronto, falta fazer, só pra adiantar e deixar já estruturado.
+    if dados['semana_ideal']:
+        print(f"Semana Ideal: {services.media_semanal(treinos)}")
+    else:
+        print(f"Semana Ideal: {services.media_semanal(treinos)}")
+                        
+    if dados['media_semanal']:
+        print(f"Média Semanal: {services.media_semanal(treinos)}")
+    else:
+        print(f"Média Semanal: {services.media_semanal(treinos)})")
 
 def grafico(): #utilização de numpy e/ou matplotlib
     return
