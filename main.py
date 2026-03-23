@@ -53,7 +53,7 @@ def main():
                 if existe:
                     services.listar(treinos, tipo_desejado)
             case 3:
-                services.semana_ideal()
+                services.semana_ideal(treinos)
             case 4:
                 resultado = services.dia_ideal(treinos)
         
