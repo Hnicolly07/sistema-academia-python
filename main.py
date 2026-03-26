@@ -65,7 +65,7 @@ def main():
             case 8:
                 models.relatorio(treinos)
             case 9:
-                models.grafico(treinos)
+                models.grafico(treinos) 
             
                 
 def exibir_menu():
