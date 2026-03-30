@@ -34,19 +34,11 @@ def relatorio(treinos):
     print(f"Tempo Total Gasto: {total_duracao} minutos")
     print(f"Total de Calorias Queimadas: {total_calorias} kcal")
     print(f"Média de Esforço Percebido: {media}/10")
-
-
-    print(f"Treino Mais Longo: {mais_longo['tipo']} ({mais_longo['duracao']} min)")
-                
-    print(f"Dia Ideal: {dia_campeao['data']} ({dia_campeao['calorias_totais']} kcal)")
-                        
-    print("-" * 50)
-    print(" MÉTRICAS EM DESENVOLVIMENTO ")
-                    
-    print(f"Semana Ideal: {services.media_semanal(treinos)}")
-                        
-    print(f"Média Semanal: {services.media_semanal(treinos)}")
-
+    print(f"Treino Mais Longo: {mais_longo['tipo']} ({mais_longo['duracao']} min)")         
+    print(f"Dia Ideal: {dia_campeao['data']} ({dia_campeao['calorias_totais']} kcal)")                
+    print(f"Semana Ideal: Semana {services.semana_ideal(treinos)}")
+    print(f"Média Semanal: {services.media_semanal(treinos)} treinos/semana")
+    print("="*50)
 
 def grafico(treinos): 
     df = pd.DataFrame(treinos)

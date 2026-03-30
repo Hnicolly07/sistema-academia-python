@@ -49,7 +49,7 @@ def media_semanal(treinos):
     for treino in treinos:
         contagem[treino["semana"]] = contagem.get(treino["semana"], 0) + 1
     for qtd_treinos in contagem.values():
-        media_semana = qtd_treinos/5 #5 pois os dias de treino serão de segunda a sexta
+        media_semana = qtd_treinos/7 #7 pois os dias de treino serão de segunda a domingo
         soma += media_semana
     return round(soma/len(contagem), 2) #2 casas decimais
 

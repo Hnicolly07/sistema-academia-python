@@ -85,7 +85,7 @@ def exibir_menu():
     print("4. Dia Ideal")
     print("5. Média Semanal")
     print("6. Obter treino mais longo")
-    print("7. Gerar Resumo")
+    print("7. Gerar Estatísticas")
     print("8. Gerar Relatório")
     print("9. Ver Gráfico de Calorias (Visual)")
     print("0. Sair do sistema")
