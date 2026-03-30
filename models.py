@@ -37,7 +37,7 @@ def relatorio(treinos):
     print(f"Treino Mais Longo: {mais_longo['tipo']} ({mais_longo['duracao']} min)")         
     print(f"Dia Ideal: {dia_campeao['data']} ({dia_campeao['calorias_totais']} kcal)")                
     print(f"Semana Ideal: Semana {services.semana_ideal(treinos)}")
-    print(f"Média Semanal: {services.media_semanal(treinos)} treinos/semana")
+    print(f"Média Semanal: {services.media_semanal(treinos)}/1.0")
     print("="*50)
 
 def grafico(treinos): 

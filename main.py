@@ -25,7 +25,7 @@ def main():
 
         match escolha:
             case 1:
-                data = models.validar_str('Dia da Semana: ')
+                data = models.validar_str('Dia da Semana (Ex: Segunda): ')
                 while not models.validar_dia_semana(data):
                     print("Dia Inválido")
                     data = models.validar_str('Dia da Semana: ')
