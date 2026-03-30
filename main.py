@@ -19,27 +19,36 @@ def main():
             print('Encerrando...')
             break
         
-        if escolha in [2,3,4,5,6,7,8] and not treinos:
+        if escolha in [2,3,4,5,6,7,8,9] and not treinos:
             print('Não há treinos registrados. Favor registrar ao menos um treino (Opção 1)')
             continue
 
         match escolha:
             case 1:
-                data = input('Data: ')
-                while True:
-                    semana = int(input('Esse treino pertence a qual semana do mês (1-4)? '))
-                    if semana in [1,2,3,4]:
-                        break
-                    print('Apenas valores entre 1 e 4. Tente Novamente!')
+                data = input('Dia da Semana: ')
+                semana = int(input('Esse treino pertence a qual semana do mês (1-4)? '))
                 tipo_treino = input('Tipo de treino: ')
                 duracao = int(input('Duração: '))
                 esforco_percebido = int(input('Esforço percebido: '))
-                while esforco_percebido not in [1,2,3,4,5,6,7,8,9,10]:
+                calorias_estimadas = int(input('Calorias estimadas: '))
+
+                data = models.validar_str(data)
+                tipo_treino = models.validar_str(tipo_treino)
+                duracao = models.validar_inteiro(duracao)
+
+                while True:
                     print("Apenas valores de 1 a 10. Digite novamente!")
                     esforco_percebido = int(input('Esforço percebido: '))
-                calorias_estimadas = int(input('Calorias estimadas: '))
+                    if models.validar_intervalo(esforco_percebido, 1, 10):
+                        break
+                while True:
+                    print('Apenas valores entre 1 e 4. Tente Novamente!')
+                    semana = int(input('Esse treino pertence a qual semana do mês (1-4)? '))
+                    if models.validar_intervalo(semana, 1, 4):
+                        break
                 novo_treino = models.registrar_sessao(data, semana, tipo_treino, duracao, esforco_percebido, calorias_estimadas)
                 treinos.append(novo_treino)
+                print('\nTreino cadastrado com sucesso!')
             case 2:
                 tipo_desejado = input('Tipo de treino que deseja listar: ')
                 existe = False

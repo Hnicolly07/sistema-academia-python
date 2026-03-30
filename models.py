@@ -19,15 +19,13 @@ def registrar_sessao(data, semana, tipo, duracao, esforco, calorias):
     
     return novo_treino
 
-def relatorio(treinos): #talvez passar chamadas pra dentro dos prints pra reduzir utilização de memoria
+def relatorio(treinos): 
     total_treinos = len(treinos)
     total_duracao = services.calcular_total_minutos(treinos)
     total_calorias = services.calcular_total_calorias(treinos)
     media = services.media_esforco(treinos)
     mais_longo = services.treino_mais_longo(treinos)
-    dia_campeao = services.dia_ideal(treinos)
-    semana_campea = services.semana_ideal(treinos) 
-    media_semana = services.media_semanal(treinos) 
+    #dia_campeao = services.dia_ideal(treinos)
 
     print("\n" + "="*50)
     print(" RELATÓRIO GERAL DE TREINOS ")
@@ -36,29 +34,19 @@ def relatorio(treinos): #talvez passar chamadas pra dentro dos prints pra reduzi
     print(f"Tempo Total Gasto: {total_duracao} minutos")
     print(f"Total de Calorias Queimadas: {total_calorias} kcal")
     print(f"Média de Esforço Percebido: {media}/10")
-                    
-    dados = relatorio(treinos)
 
-    if dados['treino_mais_longo']:
-        t_longo = dados['treino_mais_longo']
-        print(f"Treino Mais Longo: {t_longo['tipo']} ({t_longo['duracao']} min)")
+
+    print(f"Treino Mais Longo: {mais_longo['tipo']} ({mais_longo['duracao']} min)")
                 
-    if dados['dia_ideal']:
-        print(f"Dia Ideal: {dados['dia_ideal']['data']} ({dados['dia_ideal']['calorias_totais']} kcal)")
+    print(f"Dia Ideal: {services.dia_ideal(treinos)['data']} ({services.dia_ideal(treinos)['calorias_totais']} kcal)")
                         
     print("-" * 50)
     print(" MÉTRICAS EM DESENVOLVIMENTO ")
                     
-                # ainda não está pronto, falta fazer, só pra adiantar e deixar já estruturado.
-    if dados['semana_ideal']:
-        print(f"Semana Ideal: {services.media_semanal(treinos)}")
-    else:
-        print(f"Semana Ideal: {services.media_semanal(treinos)}")
+    print(f"Semana Ideal: {services.media_semanal(treinos)}")
                         
-    if dados['media_semanal']:
-        print(f"Média Semanal: {services.media_semanal(treinos)}")
-    else:
-        print(f"Média Semanal: {services.media_semanal(treinos)})")
+    print(f"Média Semanal: {services.media_semanal(treinos)}")
+
 
 def grafico(treinos): 
     df = pd.DataFrame(treinos)
@@ -89,5 +77,13 @@ def estatistica(treinos):
     print(f"Treino Mais Longo: {mais_longo['tipo']} ({mais_longo['duracao']} min)")
     print("-"*45)
 
-def validar_entrada():
+def validar_inteiro(dado):
     return
+
+def validar_str(dado):
+    return
+
+def validar_intervalo(dado, inicio, fim):
+    if dado in range(inicio,fim+1):
+        return True
+    return False

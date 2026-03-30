@@ -43,6 +43,13 @@ def dia_ideal(treinos):
     print(f"Duração Total: {dias[melhor_dia]['duracao_total']} minutos")
     print(f"Calorias Queimadas: {dias[melhor_dia]['calorias_totais']} kcal")
     print("-"*30)
+    
+    return {
+        "data": melhor_dia,
+        "quantidade_treinos": dias[melhor_dia]['quantidade_treinos'],
+        "duracao_total": dias[melhor_dia]['duracao_total'],
+        "calorias_totais": dias[melhor_dia]['calorias_totais']
+    }
 
 def media_semanal(treinos):
     if not treinos:
