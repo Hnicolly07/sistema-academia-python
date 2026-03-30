@@ -26,6 +26,9 @@ def main():
         match escolha:
             case 1:
                 data = models.validar_str('Dia da Semana: ')
+                while not models.validar_dia_semana(data):
+                    print("Dia Inválido")
+                    data = models.validar_str('Dia da Semana: ')
                 semana = models.validar_intervalo('Esse treino pertence a qual semana do mês (1-4)? ', 1, 4)
                 tipo_treino = models.validar_str('Tipo de treino: ')
                 duracao = models.validar_inteiro('Duração: ')

@@ -107,3 +107,8 @@ def validar_intervalo(msg, inicio, fim):
             print(f"Apenas valores entre {inicio} e {fim}. Tente novamente!")
         except ValueError:
             print("Digite apenas números!")
+
+def validar_dia_semana(dia):
+    if dia.lower() in ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado', 'domingo']:
+       return True
+    return False
