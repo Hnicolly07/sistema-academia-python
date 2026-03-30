@@ -25,27 +25,13 @@ def main():
 
         match escolha:
             case 1:
-                data = input('Dia da Semana: ')
-                semana = int(input('Esse treino pertence a qual semana do mês (1-4)? '))
-                tipo_treino = input('Tipo de treino: ')
-                duracao = int(input('Duração: '))
-                esforco_percebido = int(input('Esforço percebido: '))
-                calorias_estimadas = int(input('Calorias estimadas: '))
-
-                data = models.validar_str(data)
-                tipo_treino = models.validar_str(tipo_treino)
-                duracao = models.validar_inteiro(duracao)
-
-                while True:
-                    print("Apenas valores de 1 a 10. Digite novamente!")
-                    esforco_percebido = int(input('Esforço percebido: '))
-                    if models.validar_intervalo(esforco_percebido, 1, 10):
-                        break
-                while True:
-                    print('Apenas valores entre 1 e 4. Tente Novamente!')
-                    semana = int(input('Esse treino pertence a qual semana do mês (1-4)? '))
-                    if models.validar_intervalo(semana, 1, 4):
-                        break
+                data = models.validar_str('Dia da Semana: ')
+                semana = models.validar_intervalo('Esse treino pertence a qual semana do mês (1-4)? ', 1, 4)
+                tipo_treino = models.validar_str('Tipo de treino: ')
+                duracao = models.validar_inteiro('Duração: ')
+                esforco_percebido = models.validar_intervalo('Esforço percebido (1-10): ', 1, 10)
+                calorias_estimadas = models.validar_inteiro('Calorias estimadas: ')
+        
                 novo_treino = models.registrar_sessao(data, semana, tipo_treino, duracao, esforco_percebido, calorias_estimadas)
                 treinos.append(novo_treino)
                 print('\nTreino cadastrado com sucesso!')

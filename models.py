@@ -1,6 +1,6 @@
 import services
-import pandas as pd
-import matplotlib.pyplot as plt
+#import pandas as pd
+#import matplotlib.pyplot as plt
 
 def validar_escolha(escolha):
     if escolha in [0,1,2,3,4,5,6,7,8,9]:
@@ -49,21 +49,21 @@ def relatorio(treinos):
 
 
 def grafico(treinos): 
-    df = pd.DataFrame(treinos)
-    calorias_por_tipo = df.groupby('tipo')['calorias'].sum()
-    plt.figure(figsize=(10, 6))
-    ax = calorias_por_tipo.plot(kind='barh', color='deepskyblue')
+    #df = pd.DataFrame(treinos)
+    #calorias_por_tipo = df.groupby('tipo')['calorias'].sum()
+    #plt.figure(figsize=(10, 6))
+    #ax = calorias_por_tipo.plot(kind='barh', color='deepskyblue')
 
-    ax.bar_label(ax.containers[0], fontweight='bold', padding=4)
+    #ax.bar_label(ax.containers[0], fontweight='bold', padding=4)
 
-    plt.title('Calorias Queimadas por Tipo de Treino', fontsize=14, fontweight='bold')
-    plt.xlabel('Total de Calorias (kcal)', fontsize=12)
-    plt.ylabel('Tipo de Treino', fontsize=12)
-    plt.xticks(rotation=0)
-    plt.grid(axis='x', linestyle='--', alpha=0.5)
-    plt.tight_layout()
-    plt.show()
-
+    #plt.title('Calorias Queimadas por Tipo de Treino', fontsize=14, fontweight='bold')
+    #plt.xlabel('Total de Calorias (kcal)', fontsize=12)
+    #plt.ylabel('Tipo de Treino', fontsize=12)
+    #plt.xticks(rotation=0)
+    #plt.grid(axis='x', linestyle='--', alpha=0.5)
+    #plt.tight_layout()
+    #plt.show()
+    return
 
 def estatistica(treinos):
     mais_longo = services.treino_mais_longo(treinos)
@@ -77,11 +77,26 @@ def estatistica(treinos):
     print(f"Treino Mais Longo: {mais_longo['tipo']} ({mais_longo['duracao']} min)")
     print("-"*45)
 
-def validar_inteiro(dado):
-    return
+def validar_inteiro(msg):
+    while True:
+        entrada = input(msg).strip()
+        
+        if entrada == "":
+            print("Todos os campos devem ser preenchidos!")
+            continue
+        try:
+            return int(entrada)
+        except ValueError:
+            print("Digite apenas números inteiros!")
 
-def validar_str(dado):
-    return
+
+def validar_str(msg):
+    while True:
+        valor = input(msg).strip()
+        if valor == "":
+            print("Todos os campos devem ser preenchidos!")
+        else:
+            return valor
 
 def validar_intervalo(dado, inicio, fim):
     if dado in range(inicio,fim+1):
