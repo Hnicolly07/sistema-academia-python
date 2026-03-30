@@ -48,22 +48,22 @@ def relatorio(treinos):
     print(f"Média Semanal: {services.media_semanal(treinos)}")
 
 
-#def grafico(treinos): 
-    #df = pd.DataFrame(treinos)
-    #calorias_por_tipo = df.groupby('tipo')['calorias'].sum()
-    #plt.figure(figsize=(10, 6))
-    #ax = calorias_por_tipo.plot(kind='barh', color='deepskyblue')
+def grafico(treinos): 
+    df = pd.DataFrame(treinos)
+    calorias_por_tipo = df.groupby('tipo')['calorias'].sum()
+    plt.figure(figsize=(10, 6))
+    ax = calorias_por_tipo.plot(kind='barh', color='deepskyblue')
 
-    #ax.bar_label(ax.containers[0], fontweight='bold', padding=4)
+    ax.bar_label(ax.containers[0], fontweight='bold', padding=4)
 
-    #plt.title('Calorias Queimadas por Tipo de Treino', fontsize=14, fontweight='bold')
-    #plt.xlabel('Total de Calorias (kcal)', fontsize=12)
-    #plt.ylabel('Tipo de Treino', fontsize=12)
-    #plt.xticks(rotation=0)
-    #plt.grid(axis='x', linestyle='--', alpha=0.5)
-    #plt.tight_layout()
-    #plt.show()
-    #return
+    plt.title('Calorias Queimadas por Tipo de Treino', fontsize=14, fontweight='bold')
+    plt.xlabel('Total de Calorias (kcal)', fontsize=12)
+    plt.ylabel('Tipo de Treino', fontsize=12)
+    plt.xticks(rotation=0)
+    plt.grid(axis='x', linestyle='--', alpha=0.5)
+    plt.tight_layout()
+    plt.show()
+  
 
 def estatistica(treinos):
     mais_longo = services.treino_mais_longo(treinos)
