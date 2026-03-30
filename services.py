@@ -35,14 +35,6 @@ def dia_ideal(treinos):
             maior_caloria = info["calorias_totais"]
             melhor_dia = data
 
-    print("\n" + "-"*30)
-    print("SEU DIA IDEAL (Recorde)")
-    print("-"*30)
-    print(f"Data: {melhor_dia}")
-    print(f"Treinos realizados: {dias[melhor_dia]['quantidade_treinos']}")
-    print(f"Duração Total: {dias[melhor_dia]['duracao_total']} minutos")
-    print(f"Calorias Queimadas: {dias[melhor_dia]['calorias_totais']} kcal")
-    print("-"*30)
     
     return {
         "data": melhor_dia,
@@ -52,8 +44,6 @@ def dia_ideal(treinos):
     }
 
 def media_semanal(treinos):
-    if not treinos:
-        return 0.0
     soma = media_semana = 0
     contagem = {}
     for treino in treinos:

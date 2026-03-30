@@ -48,15 +48,24 @@ def main():
                 if existe:
                     services.listar(treinos, tipo_desejado)
             case 3:
-                services.semana_ideal(treinos)
+                print(f"\nSEMANA IDEAL: {services.semana_ideal(treinos)}")
             case 4:
-                services.dia_ideal(treinos)
+                melhor_dia = services.dia_ideal(treinos)
+                print("\n" + "-"*30)
+                print("SEU DIA IDEAL (Recorde)")
+                print("-"*30)
+                print(f"Data: {melhor_dia['data']}")
+                print(f"Treinos realizados: {melhor_dia['quantidade_treinos']}")
+                print(f"Duração Total: {melhor_dia['duracao_total']} minutos")
+                print(f"Calorias Queimadas: {melhor_dia['calorias_totais']} kcal")
+                print("-"*30)
             case 5:
-                services.media_semanal(treinos)
+                print(f"\nMÉDIA SEMANAL: {services.media_semanal(treinos)}")
             case 6:
-                print(f"Treino mais longo: {services.treino_mais_longo(treinos)}")
+                mais_longo = services.treino_mais_longo(treinos)
+                print(f"\nTreino mais longo: {mais_longo['tipo']} ({mais_longo['duracao']} min)")
             case 7:
-                models.resumo(treinos)
+                models.estatistica(treinos)
             case 8:
                 models.relatorio(treinos)
             case 9:
